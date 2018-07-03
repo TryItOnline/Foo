@@ -2,6 +2,7 @@
  * An interpreter for the Foo esoteric programming language
  * Written by Feky, 2008 */
  
+ #include <ctype.h>
  #include <stdio.h>
  #include <string.h>
  #include <unistd.h>
@@ -55,7 +56,7 @@
 
  USHORT pop (struct _stack *stack) {
 	 
-	 if(stack->top < 0) {
+	 if(stack->top <= 0) {
 		 fputs("Stack is empty.\n", stderr);
 		 return 0;
 	 }
@@ -88,7 +89,7 @@
 		 return -1;
 	 }
 	 
-	 memset(array, 0, ARRAY_SZ);
+	 memset(array, 0, sizeof array);
 	 stack.top = 0;
 	 
 	 while(fgets(line, MAX_LINE, f) != NULL) {
