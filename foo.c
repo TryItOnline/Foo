@@ -102,7 +102,8 @@
 						 putchar(*p);
 						 p++;
 					 }
-					 p++;
+					 if(*p != '\0')
+						 p++;
 				 break;
 					 
 				 case '@':
